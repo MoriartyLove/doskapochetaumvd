@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Доска почёта</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+            background-attachment: fixed;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .header {
+            text-align: center;
+            margin: 30px 0;
+            color: white;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .honor-board {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .honoree {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .honoree:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+        }
+
+        .photo-container {
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .honoree:hover .photo {
+            transform: scale(1.05);
+        }
+
+        .badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            color: #8B0000;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .info {
+            padding: 25px;
+            text-align: center;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .name {
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+            color: #2c3e50;
+        }
+
+        .achievement {
+            color: #7f8c8d;
+            line-height: 1.6;
+            font-style: italic;
+            padding: 0 10px;
+        }
+
+        @media (max-width: 768px) {
+            .honor-board {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: 20px;
+                padding: 10px;
+            }
+            
+            .header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .photo-container {
+                height: 250px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .honor-board {
+                grid-template-columns: 1fr;
+            }
+            
+            .header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .header p {
+                font-size: 1rem;
+            }
+        }
+
+        .footer {
+            text-align: center;
+            color: white;
+            padding: 30px;
+            font-size: 1rem;
+            margin-top: 20px;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Доска почёта</h1>
+        <p>Лучшие сотрудники предприятия, отличившиеся выдающимися достижениями</p>
+    </div>
+
+    <div class="honor-board">
+        <!-- Пример 1 -->
+        <div class="honoree">
+            <div class="photo-container">
+                <div class="badge">Почётный работник</div>
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600" alt="Фото сотрудника" class="photo">
+            </div>
+            <div class="info">
+                <h3 class="name">Иванов Сергей Петрович</h3>
+                <p class="achievement">За внедрение инновационной технологии производства, увеличившей эффективность на 40%</p>
+            </div>
+        </div>
+
+        <!-- Пример 2 -->
+        <div class="honoree">
+            <div class="photo-container">
+                <div class="badge">Лидер года</div>
+                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=600" alt="Фото сотрудника" class="photo">
+            </div>
+            <div class="info">
+                <h3 class="name">Смирнова Анна Владимировна</h3>
+                <p class="achievement">За выдающиеся успехи в руководстве отделом и перевыполнение плана продаж на 25%</p>
+            </div>
+        </div>
+
+        <!-- Пример 3 -->
+        <div class="honoree">
+            <div class="photo-container">
+                <div class="badge">Новатор</div>
+                <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=600" alt="Фото сотрудника" class="photo">
+            </div>
+            <div class="info">
+                <h3 class="name">Петров Дмитрий Игоревич</h3>
+                <p class="achievement">За разработку и внедрение системы автоматизации, сократившей расходы на 15%</p>
+            </div>
+        </div>
+
+        <!-- Пример 4 -->
+        <div class="honoree">
+            <div class="photo-container">
+                <div class="badge">Ментор</div>
+                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600" alt="Фото сотрудника" class="photo">
+            </div>
+            <div class="info">
+                <h3 class="name">Козлова Елена Михайловна</h3>
+                <p class="achievement">За подготовку молодых специалистов и создание программы адаптации новых сотрудников</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>© 2023 Доска почёта. Все права защищены.</p>
+    </div>
+</body>
+</html>
